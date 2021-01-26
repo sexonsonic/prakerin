@@ -1,4 +1,4 @@
-<div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
+<div class="sidebar" data-color="dark-green" data-image="{{asset ('assets/img/sidebar-1.jpg') }}">
 
     <!--
 
@@ -15,7 +15,7 @@
             </div>
 
             <ul class="nav">
-                <li class="nav-item ">
+                <li class="nav-item active">
                     <a href="#" class="nav-link">
                         <i class="nc-icon nc-chart-bar-32"></i>
                         <p>Kasus Global</p>
@@ -33,7 +33,7 @@
                         <p>Dampak</p>
                     </a>
                 </li>
-                <li class="nav-item ">
+                <li class="nav-item active">
                     <a href="#" class="nav-link">
                         <i class="nc-icon nc-chart-bar-32"></i>
                         <p>Kasus Indonesia</p>
@@ -58,19 +58,19 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a href="#" class="nav-link">
+                    <a href="kelurahan" class="nav-link">
                         <i class="nc-icon nc-square-pin"></i>
                         <p>Desa / Kelurahan</p>
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a href="#" class="nav-link">
+                    <a href="rw" class="nav-link">
                         <i class="nc-icon nc-square-pin"></i>
                         <p>RW</p>
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a href="#" class="nav-link">
+                    <a href="kasus2" class="nav-link">
                         <i class="nc-icon nc-single-02"></i>
                         <p>Kasus</p>
                     </a>

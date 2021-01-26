@@ -36,3 +36,18 @@ Route::resource('kota', KotaController::class);
 //Routes Kecamatan
 use App\Http\Controllers\KecamatanController;
 Route::resource('kecamatan', KecamatanController::class);
+
+// Routes Kelurahan
+use App\Http\Controllers\KelurahanController;
+Route::resource('kelurahan', KelurahanController::class);
+
+// Routes Logout
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+// Routes RW
+use App\Http\Controllers\RwController;
+Route::resource('rw', RwController::class);
+
+// Routes Kasus2
+use App\Http\Controllers\Kasus2Controller;
+Route::resource('kasus2', Kasus2Controller::class);

@@ -8,6 +8,10 @@ use App\Http\Controllers\DB;
 
 class KecamatanController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     
     public function index()
     {
@@ -39,7 +43,7 @@ class KecamatanController extends Controller
     public function show($id)
     {
         $kecamatan = Kecamatan::findOrFail($id);
-        $kota = Kota::findOrFail($id);
+        $kota = Kota::all();
         return view('kecamatan.show', compact('kecamatan','kota'));
     }
 

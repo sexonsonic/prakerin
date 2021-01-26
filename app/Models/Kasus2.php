@@ -12,6 +12,6 @@ class Kasus2 extends Model
     public $timetamps = true;
 
     public function rw(){
-        return $this->belongsTo('App\RW', 'id_rw');
+        return $this->belongsTo('App\Models\RW', 'id_rw');
     }
 }

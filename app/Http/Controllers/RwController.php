@@ -1,84 +1,74 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\RW;
+use App\Models\Kelurahan;
+use App\Http\Controllers\DB;
 use Illuminate\Http\Request;
 
 class RwController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
-        //
+        $rw = RW::with('kelurahan')->get();
+        return view('rw.index', compact('rw'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        $rw = RW::all();
+        $kelurahan = Kelurahan::all();
+        return view('rw.create', compact('rw','kelurahan'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
-        //
+        $rw = new RW;
+        $rw->nama = $request->nama;
+        $rw->id_kelurahan = $request->id_kelurahan;
+        $rw->save();
+        return redirect()->route('rw.index')
+                ->with(['message'=>'Data RW berhasil dibuat !']);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show($id)
     {
-        //
+        $rw = RW::findOrFail($id);
+        $kelurahan = Kelurahan::all();
+        return view('rw.show', compact('rw','kelurahan'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function edit($id)
     {
-        //
+        $rw = RW::findOrFail($id);
+        $kelurahan = Kelurahan::all();
+        return view('rw.edit', compact('rw', 'kelurahan'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, $id)
     {
-        //
+        $rw = RW::findOrFail($id);
+        $rw->nama = $request->nama;
+        $rw->id_kelurahan = $request->id_kelurahan;
+        $rw->save();
+        return redirect()->route('rw.index')
+                ->with(['message'=>'Data RW berhasil diubah !']);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy($id)
     {
-        //
+        $rw = RW::findOrFail($id)->delete();
+        return redirect()->route('rw.index')
+                ->with(['message'=>'RW berhasil dihapus']);
     }
 }
