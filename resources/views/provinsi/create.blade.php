@@ -19,14 +19,21 @@
                             <div class="form-group">
                                 <label for="">Kode Provinsi</label>
                                 <input type="text"name="kode_provinsi" class="form-control" id="exampleInputEmail1"  placeholder="Kode Provinsi">
+                                @if($errors->has('kode_provinsi'))
+                                    <span class="text-danger">{{ $errors->first('kode_provinsi') }}</span>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <label for="">Nama Provinsi</label>
                                 <input type="text" name="nama_provinsi" class="form-control" id="exampleInputPassword1" placeholder="Nama Provinsi">
+                                @if($errors->has('nama_provinsi'))
+                                    <span class="text-danger">{{ $errors->first('nama_provinsi') }}</span>
+                                @endif
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>
+
                 </div>
             </div>
         </div>

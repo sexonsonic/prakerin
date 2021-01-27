@@ -37,10 +37,16 @@
                             <div class="form-group">
                                 <label for="">Kode Kelurahan</label>
                                 <input type="text"name="kode_kelurahan" class="form-control" id="exampleInputEmail1"  value="{{ $kelurahan->kode_kelurahan }}">
+                                @if($errors->has('kode_kelurahan'))
+                                    <span class="text-danger">{{ $errors->first('kode_kelurahan') }}</span>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <label for="">Nama Kelurahan</label>
                                 <input type="text" name="nama_kelurahan" class="form-control" id="exampleInputPassword1" value="{{ $kelurahan->nama_kelurahan }}">
+                                @if($errors->has('nama_kelurahan'))
+                                    <span class="text-danger">{{ $errors->first('nama_kelurahan') }}</span>
+                                @endif
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>

@@ -27,6 +27,9 @@
                             <div class="form-group">
                                 <label for="">Nomor RW</label>
                                 <input type="text"name="nama" class="form-control" id="exampleInputEmail1"  placeholder="Nomor RW">
+                                @if($errors->has('nama'))
+                                    <span class="text-danger">{{ $errors->first('nama') }}</span>
+                                @endif
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>

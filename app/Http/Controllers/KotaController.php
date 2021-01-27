@@ -30,6 +30,17 @@ class KotaController extends Controller
     
     public function store(Request $request)
     {
+        $request->validate([
+            'kode_kota' => 'required|max:7|unique:kotas',
+            'nama_kota' => 'required|unique:kotas'
+        ], [
+            'kode_kota.required' => 'Kode kota tidak boleh kosong',
+            'kode_kota.max' => 'Kode maximal 7 karakter',
+            'kode_kota.unique' => 'Kode kota sudah terdaftar',
+            'nama_kota.required' => 'Nama kota tidak boleh kosong',
+            'nama_kota.unique' => 'Nama kota sudah terdaftar'
+        ]);
+
         $kota = new Kota;
         $kota->kode_kota = $request->kode_kota;
         $kota->nama_kota = $request->nama_kota;
@@ -58,6 +69,16 @@ class KotaController extends Controller
    
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'kode_kota' => 'required|max:7',
+            'nama_kota' => 'required|unique:kotas'
+        ], [
+            'kode_kota.required' => 'Kode kota tidak boleh kosong',
+            'kode_kota.max' => 'Kode maximal 7 karakter',
+            'nama_kota.required' => 'Nama kota tidak boleh kosong',
+            'nama_kota.unique' => 'Nama kota sudah terdaftar'
+        ]);
+
         $kota = Kota::findOrFail($id);
         $kota->kode_kota = $request->kode_kota;
         $kota->nama_kota = $request->nama_kota;

@@ -29,10 +29,16 @@
                             <div class="form-group">
                                 <label for="">Kode Kota</label>
                                 <input type="text"name="kode_kota" class="form-control" id="exampleInputEmail1"  value="{{ $kota->kode_kota }}">
+                                @if($errors->has('kode_kota'))
+                                    <span class="text-danger">{{ $errors->first('kode_kota') }}</span>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <label for="">Nama Kota</label>
                                 <input type="text" name="nama_kota" class="form-control" id="exampleInputPassword1" value="{{ $kota->nama_kota }}">
+                                @if($errors->has('nama_kota'))
+                                    <span class="text-danger">{{ $errors->first('nama_kota') }}</span>
+                                @endif
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>

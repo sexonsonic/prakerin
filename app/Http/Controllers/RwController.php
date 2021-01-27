@@ -29,6 +29,13 @@ class RwController extends Controller
     
     public function store(Request $request)
     {
+        $request->validate([
+            'nama' => 'required|max:11|unique:r_w_s'
+        ], [
+            'nama.required' => 'Nama RW tidak boleh kosong',
+            'nama.unique' => 'Nama RW sudah terdaftar'
+        ]);
+
         $rw = new RW;
         $rw->nama = $request->nama;
         $rw->id_kelurahan = $request->id_kelurahan;
@@ -56,6 +63,12 @@ class RwController extends Controller
     
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'nama' => 'required|max:11'
+        ], [
+            'nama.required' => 'Nama RW tidak boleh kosong'
+        ]);
+
         $rw = RW::findOrFail($id);
         $rw->nama = $request->nama;
         $rw->id_kelurahan = $request->id_kelurahan;

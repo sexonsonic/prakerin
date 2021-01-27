@@ -40,37 +40,37 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a href="provinsi" class="nav-link">
+                    <a href="{{route('provinsi.index')}}" class="nav-link">
                         <i class="nc-icon nc-square-pin"></i>
                         <p>Provinsi</p>
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a href="kota" class="nav-link">
+                    <a href="{{route('kota.index')}}" class="nav-link">
                         <i class="nc-icon nc-square-pin"></i>
                         <p>Kota / Kabupaten</p>
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a href="kecamatan" class="nav-link">
+                    <a href="{{route('kecamatan.index')}}" class="nav-link">
                         <i class="nc-icon nc-square-pin"></i>
                         <p>Kecamatan</p>
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a href="kelurahan" class="nav-link">
+                    <a href="{{route('kelurahan.index')}}" class="nav-link">
                         <i class="nc-icon nc-square-pin"></i>
                         <p>Desa / Kelurahan</p>
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a href="rw" class="nav-link">
+                    <a href="{{route('rw.index')}}" class="nav-link">
                         <i class="nc-icon nc-square-pin"></i>
                         <p>RW</p>
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a href="kasus2" class="nav-link">
+                    <a href="{{route('kasus2.index')}}" class="nav-link">
                         <i class="nc-icon nc-single-02"></i>
                         <p>Kasus</p>
                     </a>
