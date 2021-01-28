@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Kasus2;
 use App\Models\RW;
+
 use App\Http\Controllers\DB;
 use Illuminate\Http\Request;
 

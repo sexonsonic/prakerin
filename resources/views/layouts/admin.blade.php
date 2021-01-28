@@ -16,6 +16,8 @@
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{asset ('assets/css/demo.css') }}" rel="stylesheet" />
 
+    <!-- @livewireStyle -->
+
 </head>
 <body>
 
@@ -33,6 +35,7 @@
         <div class="content">
 
         @yield('content')
+        
 
         </div>
     <!-- end content -->
@@ -43,7 +46,7 @@
     </div>
 </div>
 
-
+    @livewireScripts
 </body>
 
     <!--   Core JS Files   -->

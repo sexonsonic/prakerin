@@ -16,13 +16,8 @@
                     <div class="card-body">
                         <form action="{{ route('kasus2.store') }}" method="POST">
                         @csrf
-                            <div class="form-group">
-                                <label for="">RW</label>
-                                <select name="id_rw" class="form-control">
-                                    @foreach ($rw as $data)
-                                        <option value="{{$data->id}}">{{$data->nama}}</option>
-                                    @endforeach
-                                </select>
+                            <div class="col">
+                                <livewire:kasus2 />
                             </div>
                             <div class="form-group">
                                 <label for="">Jumlah Positif</label>
