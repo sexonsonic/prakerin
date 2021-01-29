@@ -18,20 +18,7 @@
                         <input type="hidden" name="_method" value="put">
                         @csrf
                             <div class="form-group">
-                                <label for="">Nama Provinsi</label>
-                                <input type="text" name="nama_provinsi" class="form-control" id="exampleInputPassword1" value="{{$kasus2->rw->kelurahan->kecamatan->kota->provinsi->nama_provinsi}}" readonly>  
-                            </div>
-                            <div class="form-group">
-                                <label for="">Nama Kota / Kabupaten</label>
-                                <input type="text" name="nama_kota" class="form-control" id="exampleInputPassword1" value="{{$kasus2->rw->kelurahan->kecamatan->kota->nama_kota}}" readonly>  
-                            </div>
-                            <div class="form-group">
-                                <label for="">Nama Kecamatan</label>
-                                <input type="text" name="nama_kecamatan" class="form-control" id="exampleInputPassword1" value="{{$kasus2->rw->kelurahan->kecamatan->nama_kecamatan}}" readonly>  
-                            </div>
-                            <div class="form-group">
-                                <label for="">Nama Kelurahan</label>
-                                <input type="text" name="nama_kelurahan" class="form-control" id="exampleInputPassword1" value="{{$kasus2->rw->kelurahan->nama_kelurahan}}" readonly>  
+                                <livewire:kasus2 />
                             </div>
                             <div class="form-group">
                                 <label for="">RW</label>

@@ -43,7 +43,6 @@
                                         <td>{{ $data->nama_kelurahan }}</td>
                                         <td>{{ $data->kecamatan->nama_kecamatan}}</td>
                                         <td>{{ $data->kecamatan->kota->nama_kota }}</td>
-                                        <td>{{ $data->kecamatan->kota->provinsi->nama_provinsi }}</td>
                                         <td>
                                             <form action="{{route('kelurahan.destroy', $data->id)}}" method="post">
                                                 @csrf

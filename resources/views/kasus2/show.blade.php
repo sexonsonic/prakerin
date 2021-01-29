@@ -52,7 +52,7 @@
                                 <label for="">Tanggal</label>
                                 <input type="text"name="tanggal" class="form-control" id="exampleInputEmail1"  value="{{$kasus2->tanggal}}" readonly>
                             </div>
-                            <a href="{{url()->previous()}}" class="btn btn-primary">Kembali</a>
+                            <a href="{{url()->previous()}}" class="btn btn-danger">Kembali</a>
                         </form>
                     </div>
                 </div>

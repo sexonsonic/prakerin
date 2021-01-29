@@ -30,7 +30,6 @@
                                         <th>Nama Kelurahan/Desa</th>
                                         <th>Nama Kecamatan</th>
                                         <th>Nama Kota/Kabputen</th>
-                                        <th>Nama Provinsi</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -43,7 +42,6 @@
                                         <td>{{ $data->kelurahan->nama_kelurahan }}</td>
                                         <td>{{ $data->kelurahan->kecamatan->nama_kecamatan}}</td>
                                         <td>{{ $data->kelurahan->kecamatan->kota->nama_kota }}</td>
-                                        <td>{{ $data->kelurahan->kecamatan->kota->provinsi->nama_provinsi }}</td>
                                         <td>
                                             <form action="{{route('rw.destroy', $data->id)}}" method="post">
                                                 @csrf

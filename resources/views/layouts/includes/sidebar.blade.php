@@ -16,7 +16,7 @@
 
             <ul class="nav">
                 <li class="nav-item active">
-                    <a href="#" class="nav-link">
+                    <a href="" class="nav-link" disabled="disabled">
                         <i class="nc-icon nc-chart-bar-32"></i>
                         <p>Kasus Global</p>
                     </a>
@@ -34,7 +34,7 @@
                     </a>
                 </li>
                 <li class="nav-item active">
-                    <a href="#" class="nav-link">
+                    <a href="" class="nav-link" disabled="disabled">
                         <i class="nc-icon nc-chart-bar-32"></i>
                         <p>Kasus Indonesia</p>
                     </a>

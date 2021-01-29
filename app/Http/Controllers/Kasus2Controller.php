@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 use App\Models\Kasus2;
 use App\Models\RW;
-
+use App\Models\Kelurahan;
+use App\Models\Kecamatan;
+use App\Models\Kota;
+use App\Models\Provinsi;
 use App\Http\Controllers\DB;
 use Illuminate\Http\Request;
 
@@ -65,7 +68,11 @@ class Kasus2Controller extends Controller
     {
         $kasus2 = Kasus2::findOrFail($id);
         $rw = RW::all();
-        return view('kasus2.edit', compact('kasus2', 'rw'));
+        $provinsi = Provinsi::all();
+        $kota = Kota::all();
+        $kecamatan = Kecamatan::all();
+        $kelurahan = Kelurahan::all();
+        return view('kasus2.edit', compact('kasus2', 'rw','provinsi','kota','kecamatan','kelurahan'));
     }
 
     

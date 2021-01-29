@@ -56,8 +56,8 @@
                                                 @csrf
                                                 @method('DELETE')
                                                 <a href="{{route('kasus2.edit',$data->id)}}" class="btn btn-success  float-right"><b>Edit</b></a> 
-                                                <a href="{{route('kasus2.show',$data->id)}}" class="btn btn-info float-right"><b>Show</b></a>
-                                                <button type="submit" class="btn btn-danger float-right"><b>Delete</b></button>
+                                                <!-- <a href="{{route('kasus2.show',$data->id)}}" class="btn btn-info float-right"><b>Show</b></a> -->
+                                                <button type="submit" class="btn-danger btn float-right"><b>Delete</b></button>
                                             </form>
                                         </td>
                                     </tr>
