@@ -30,10 +30,9 @@ class RwController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nama' => 'required|max:11|unique:r_w_s'
+            'nama' => 'required|max:11'
         ], [
-            'nama.required' => 'Nama RW tidak boleh kosong',
-            'nama.unique' => 'Nama RW sudah terdaftar'
+            'nama.required' => 'Nama RW tidak boleh kosong'
         ]);
 
         $rw = new RW;

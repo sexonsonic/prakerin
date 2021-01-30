@@ -17,7 +17,7 @@
                         <form action="{{ route('kasus2.store') }}" method="POST">
                         @csrf
                             <div class="col">
-                                <livewire:kasus2 />
+                                <livewire:kasus />
                             </div>
                             
                                 <center><h2><p>-- Data Kasus --</p></h2></center>

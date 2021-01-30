@@ -15,6 +15,12 @@
             </div>
 
             <ul class="nav">
+                <!-- <li class="nav-item active">
+                    <a href="laporan" class="nav-link" disabled="disabled">
+                        <i class="nc-icon nc-chart-bar-32"></i>
+                        <p>HOME</p>
+                    </a>
+                </li> -->
                 <li class="nav-item active">
                     <a href="" class="nav-link" disabled="disabled">
                         <i class="nc-icon nc-chart-bar-32"></i>

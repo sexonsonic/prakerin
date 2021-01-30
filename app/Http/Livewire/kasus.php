@@ -8,8 +8,10 @@ use App\Models\Kota;
 use App\Models\Kecamatan;
 use App\Models\Kelurahan;
 use App\Models\RW;
+use App\Models\Kasus2;
 
-class Kasus2 extends Component
+
+class kasus extends Component
 {
     public $provinsi;
     public $kota;
@@ -19,7 +21,7 @@ class Kasus2 extends Component
 
     public $idT;
     public $idRw;
-
+    public $cek1 = NULL;
 
     public $pprovinsi = NULL;
     public $pkota = NULL;
@@ -27,7 +29,7 @@ class Kasus2 extends Component
     public $pkelurahan = NULL;
     public $prw = NULL;
 
-    public function mount($idt = NULL,$idrw = NULL)
+    public function mount($idt = NULL,$idrw = NULL, $cek = NULL)
     {
         $this->provinsi = Provinsi::all();
         $this->kota = collect();
@@ -36,7 +38,7 @@ class Kasus2 extends Component
         $this->rw = collect();
 
         if(!is_null($idt)){
-            $tracking = Kasus2::findOrFail($idt);
+            $kasus2 = Kasus2::findOrFail($idt);
             
         }
         if (!is_null($idrw)) {
@@ -53,13 +55,16 @@ class Kasus2 extends Component
                 $this->pkecamatan = $rw->kelurahan->id_kecamatan;
                 $this->pkelurahan = $rw->id_kelurahan;
                 $this->prw = $rw->id;
+                if ($cek == 1) {
+                    $this->cek1 = $cek;
+                }
             }
         }
     }
 
     public function render()
     {
-        return view('livewire.kasus2');
+        return view('livewire.kasus');
 
         
     }
