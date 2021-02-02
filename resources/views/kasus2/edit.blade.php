@@ -18,7 +18,15 @@
                         <input type="hidden" name="_method" value="put">
                         @csrf
                             
-                            
+                            <div class="form-group">
+                                <label for="">Nama RW</label>
+                                <select name="id_rw" class="form-control">
+                                    @foreach ($rw as $data)
+                                        <option value="{{ $data->id }}" {{ $data->id == $kasus2->id_rw ? "selected" : "" }} >
+                                            {{$data->nama}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                             <div class="form-group">
                                 <label for="">Jumlah Positif</label>
                                 <input type="text" name="jml_positif" class="form-control" id="exampleInputEmail1"  value="{{ $kasus2->jml_positif }}">
