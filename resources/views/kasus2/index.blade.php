@@ -15,24 +15,21 @@
                     </div>
                     
                     <div class="card-body">
-                        <div class="float-right">
-                            <a href="{{ route('kasus2.create') }}" class="btn btn-primary"
-                                class="float-right"> 
+                        <a href="{{route('kasus2.create')}}" class="btn btn-success mb-3 float-right"><i class="fa fa-plus-circle"></i>
                                 Tambah Data
-                            </a>
-                        </div>
+                        </a>
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table table-bordered" id="datatable">
                                 <thead>
                                     <tr>
                                         <th>Nomor</th>
-                                        <th>Lokasi</th>
-                                        <th>RW</th>
-                                        <th>Kasus Positif</th>
-                                        <th>Kasus Meninggal</th>
-                                        <th>Kasus Sembuh</th>
-                                        <th>Tanggal</th>
-                                        <th>Aksi</th>
+                                        <th><center>Lokasi</center></th>
+                                        <th><center>RW</center></th>
+                                        <th><center>Kasus Positif</center></th>
+                                        <th><center>Kasus Meninggal</center></th>
+                                        <th><center>Kasus Sembuh</center></th>
+                                        <th><center>Tanggal</center></th>
+                                        <th><center>Aksi</center></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -40,24 +37,23 @@
                                     @foreach($kasus2 as $data)
                                     <tr>
                                         <th scope="row">{{ $no++ }}</th>
-                                        <td>
+                                        <td><center>
                                             Kelurahan : {{ $data->rw->kelurahan->nama_kelurahan }} <br>
                                             Kecamatan : {{ $data->rw->kelurahan->kecamatan->nama_kecamatan }} <br>
                                             Kota : {{ $data->rw->kelurahan->kecamatan->kota->nama_kota }} <br>
                                             Provinsi : {{ $data->rw->kelurahan->kecamatan->kota->provinsi->nama_provinsi }}
+                                            </center>
                                         </td>
-                                        <td>{{ $data->rw->nama }}</td>
-                                        <td>{{ $data->jml_positif }}</td>
-                                        <td>{{ $data->jml_meninggal}}</td>
-                                        <td>{{ $data->jml_sembuh }}</td>
-                                        <td>{{ $data->tanggal }}</td>
-                                        <td>
-                                            <form action="{{route('kasus2.destroy', $data->id)}}" method="post">
+                                        <td><center>{{ $data->rw->nama }}</center></td>
+                                        <td><center>{{ $data->jml_positif }}</center></td>
+                                        <td><center>{{ $data->jml_meninggal}}</center></td>
+                                        <td><center>{{ $data->jml_sembuh }}</center></td>
+                                        <td><center>{{ $data->tanggal }}</center></td>
+                                        <td style="text-align: center;">
+                                            <form action="{{route('kasus2.destroy',$data->id)}}" method="POST">
                                                 @csrf
-                                                @method('DELETE')
-                                                <a href="{{route('kasus2.edit',$data->id)}}" class="btn btn-success  float-right"><b>Edit</b></a> 
-                                                <!-- <a href="{{route('kasus2.show',$data->id)}}" class="btn btn-info float-right"><b>Show</b></a> -->
-                                                <button type="submit" class="btn-danger btn float-right"><b>Delete</b></button>
+                                                <a href="{{route('kasus2.edit',$data->id)}}" class="btn btn-outline-primary btn-sm"><i class="fa fa-edit"> Edit</i></a> 
+                                                <button type="submit" onclick="return confirm('Apakah Anda Yakin ?')" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash-alt"> Hapus</i></button>
                                             </form>
                                         </td>
                                     </tr>

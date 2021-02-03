@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <center><h1><p>Halaman utama ya bro bro</p></h1></center>
+                    
                 </div>
             </div>
         </div>

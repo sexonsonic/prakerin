@@ -1,31 +1,7 @@
-<footer class="footer">
-            <div class="container-fluid">
-                <nav class="pull-left">
-                    <ul>
-                        <li>
-                            <a href="#">
-                                Home
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Company
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Portfolio
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                               Blog
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                <p class="copyright pull-right">
-                    &copy; <script>document.write(new Date().getFullYear())</script> <a href="http://www.creative-tim.com">Tracking Covid-19</a>, Stay Helath & Stay Safe
-                </p>
-            </div>
-        </footer>
+<footer class="main-footer">
+    <strong>Copyright &copy; 2014-2019 <a href="{{route('provinsi.index')}}">TrackingCovid-19 by SMK Assalaam</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 1.0 AP
+    </div>
+  </footer>

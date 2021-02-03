@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container">
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <h1>Login berhasil !</h1>
+                    <center><h1><p>TrackingCovid-19 by SMK Assalaam</p></h1></center>
                 </div>
             </div>
         </div>

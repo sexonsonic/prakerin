@@ -15,38 +15,33 @@
                     </div>
                     
                     <div class="card-body">
-                        <div class="float-right">
-                            <a href="{{ route('kota.create') }}" class="btn btn-primary"
-                                class="float-right">
+                        <a href="{{route('kota.create')}}" class="btn btn-success mb-3 float-right"><i class="fa fa-plus-circle"></i>
                                 Tambah Data
-                            </a>
-                        </div>
+                        </a>
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table table-bordered" id="datatable">
                                 <thead>
                                     <tr>
-                                        <th>Nomor</th>
-                                        <th>Kode Kota / Kabupaten</th>
-                                        <th>Nama Kota / Kabupaten</th>
-                                        <th>Nama Provinsi</th>
-                                        <th>Aksi</th>
+                                        <th><center>Nomor</center></th>
+                                        <th><center>Kode Kota / Kabupaten</center></th>
+                                        <th><center>Nama Kota / Kabupaten</center></th>
+                                        <th><center>Nama Provinsi</center></th>
+                                        <th><center>Aksi</center></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @php $no=1; @endphp
                                     @foreach($kota as $data)
                                     <tr>
-                                        <th scope="row">{{ $no++ }}</th>
-                                        <td>{{ $data->kode_kota }}</td>
-                                        <td>{{ $data->nama_kota }}</td>
-                                        <td>{{ $data->provinsi->nama_provinsi }}</td>
-                                        <td>
-                                            <form action="{{route('kota.destroy', $data->id)}}" method="post">
+                                        <th scope="row"><center>{{ $no++ }}</center></th>
+                                        <td><center>{{ $data->kode_kota }}</center></td>
+                                        <td><center>{{ $data->nama_kota }}</center></td>
+                                        <td><center>{{ $data->provinsi->nama_provinsi }}</center></td>
+                                        <td style="text-align: center;">
+                                            <form action="{{route('kota.destroy',$data->id)}}" method="POST">
                                                 @csrf
-                                                @method('DELETE')
-                                                <a href="{{route('kota.edit',$data->id)}}" class="btn btn-success  float-right"><b>Edit</b></a> 
-                                                <!-- <a href="{{route('kota.show',$data->id)}}" class="btn btn-info float-right"><b>Show</b></a> -->
-                                                <button type="submit" class="btn btn-danger float-right"><b>Delete</b></button>
+                                                <a href="{{route('kota.edit',$data->id)}}" class="btn btn-outline-primary btn-sm"><i class="fa fa-edit"> Edit</i></a> 
+                                                <button type="submit" onclick="return confirm('Apakah Anda Yakin ?')" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash-alt"> Hapus</i></button>
                                             </form>
                                         </td>
                                     </tr>

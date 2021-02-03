@@ -1,86 +1,99 @@
-<div class="sidebar" data-color="dark-green" data-image="{{asset ('assets/img/sidebar-1.jpg') }}">
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+      <img src="{{asset('assets/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+           style="opacity: .8">
+      <span class="brand-text font-weight-light">TrackingCovid-19</span>
+    </a>
 
-    <!--
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      
 
-        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
-        Tip 2: you can also add an image using data-image tag
-
-    -->
-
-    	<div class="sidebar-wrapper">
-            <div class="logo">
-                <a href="admin" class="simple-text">
-                    Tracking Covid-19
+      <!-- Sidebar Menu -->
+      <nav class="mt-1">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa fa-globe"></i>
+              <p>
+                Global
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="/negara" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Negara</p>
                 </a>
-            </div>
-
-            <ul class="nav">
-                <!-- <li class="nav-item active">
-                    <a href="laporan" class="nav-link" disabled="disabled">
-                        <i class="nc-icon nc-chart-bar-32"></i>
-                        <p>HOME</p>
-                    </a>
-                </li> -->
-                <li class="nav-item active">
-                    <a href="" class="nav-link" disabled="disabled">
-                        <i class="nc-icon nc-chart-bar-32"></i>
-                        <p>Kasus Global</p>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a href="#" class="nav-link">
-                        <i class="nc-icon nc-square-pin"></i>
-                        <p>Country</p>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a href="#" class="nav-link">
-                        <i class="nc-icon nc-single-02"></i>
-                        <p>Dampak</p>
-                    </a>
-                </li>
-                <li class="nav-item active">
-                    <a href="" class="nav-link" disabled="disabled">
-                        <i class="nc-icon nc-chart-bar-32"></i>
-                        <p>Kasus Indonesia</p>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a href="{{route('provinsi.index')}}" class="nav-link">
-                        <i class="nc-icon nc-square-pin"></i>
-                        <p>Provinsi</p>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a href="{{route('kota.index')}}" class="nav-link">
-                        <i class="nc-icon nc-square-pin"></i>
-                        <p>Kota / Kabupaten</p>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a href="{{route('kecamatan.index')}}" class="nav-link">
-                        <i class="nc-icon nc-square-pin"></i>
-                        <p>Kecamatan</p>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a href="{{route('kelurahan.index')}}" class="nav-link">
-                        <i class="nc-icon nc-square-pin"></i>
-                        <p>Desa / Kelurahan</p>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a href="{{route('rw.index')}}" class="nav-link">
-                        <i class="nc-icon nc-square-pin"></i>
-                        <p>RW</p>
-                    </a>
-                </li>
-                <li class="nav-item ">
-                    <a href="{{route('kasus2.index')}}" class="nav-link">
-                        <i class="nc-icon nc-single-02"></i>
-                        <p>Kasus</p>
-                    </a>
-                </li>
+              </li>
+              <li class="nav-item">
+                <a href="/kasus" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Data Kasus Global</p>
+                </a>
+              </li>
             </ul>
-    	</div>
+          </li>
+
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item has-treeview menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa fa-flag"></i>
+              <p>
+                Kasus Indonesia
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('provinsi.index')}}" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Provinsi</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('kota.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Kota</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('kecamatan.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Kecamatan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('kelurahan.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Kelurahan</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('rw.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Rw</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('kasus2.index')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Kasus Local</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+
+      </nav>
+      <!-- /.sidebar-menu -->
     </div>
+    <!-- /.sidebar -->
+  </aside>

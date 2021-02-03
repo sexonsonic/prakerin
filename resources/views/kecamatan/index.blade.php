@@ -15,40 +15,34 @@
                     </div>
                     
                     <div class="card-body">
-                        <div class="float-right">
-                            <a href="{{ route('kecamatan.create') }}" class="btn btn-primary"
-                                class="float-right"> 
+                        <a href="{{route('kecamatan.create')}}" class="btn btn-success mb-3 float-right"><i class="fa fa-plus-circle"></i>
                                 Tambah Data
-                            </a>
-                        </div>
+                        </a>
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table table-bordered" id="datatable">
                                 <thead>
                                     <tr>
-                                        <th>Nomor</th>
-                                        <th>Kode Kecamatan</th>
-                                        <th>Nama Kecamatan</th>
-                                        <th>Nama Kota/Kabputen</th>
-                                        <th>Nama Provinsi</th>
-                                        <th>Aksi</th>
+                                        <th><center>Nomor</center></th>
+                                        <th><center>Kode Kecamatan</center></th>
+                                        <th><center>Nama Kecamatan</center></th>
+                                        <th><center>Nama Kota/Kabputen</center></th>
+                                        <th><center>Aksi</center></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @php $no=1; @endphp
                                     @foreach($kecamatan as $data)
                                     <tr>
-                                        <th scope="row">{{ $no++ }}</th>
-                                        <td>{{ $data->kode_kecamatan }}</td>
-                                        <td>{{ $data->nama_kecamatan }}</td>
-                                        <td>{{ $data->kota->nama_kota }}</td>
-                                        <td>{{ $data->kota->provinsi->nama_provinsi }}</td>
-                                        <td>
-                                            <form action="{{route('kecamatan.destroy', $data->id)}}" method="post">
+                                        <th scope="row"><center>{{ $no++ }}</center></th>
+                                        <td><center>{{ $data->kode_kecamatan }}</center></td>
+                                        <td><center>{{ $data->nama_kecamatan }}</center></td>
+                                        <td><center>{{ $data->kota->nama_kota }}</center></td>
+                                        <td style="text-align: center;">
+                                            <form action="{{route('kecamatan.destroy',$data->id)}}" method="POST">
                                                 @csrf
-                                                @method('DELETE')
-                                                <a href="{{route('kecamatan.edit',$data->id)}}" class="btn btn-success  float-right"><b>Edit</b></a> 
-                                                <!-- <a href="{{route('kecamatan.show',$data->id)}}" class="btn btn-info float-right"><b>Show</b></a> -->
-                                                <button type="submit" class="btn btn-danger float-right"><b>Delete</b></button>
+                                                <a href="{{route('kecamatan.edit',$data->id)}}" class="btn btn-outline-primary btn-sm"><i class="fa fa-edit"> Edit</i></a> 
+                                                <a href="{{route('kecamatan.show',$data->id)}}" class="btn btn-outline-warning btn-sm"><i class="fa fa-eye"></i> Detail</a>
+                                                <button type="submit" onclick="return confirm('Apakah Anda Yakin ?')" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash-alt"> Hapus</i></button>
                                             </form>
                                         </td>
                                     </tr>
