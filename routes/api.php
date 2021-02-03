@@ -22,3 +22,4 @@ Route::delete('/provinsi/{id}', [ProvinsiController::class, 'destroy']);
 
 // API Controller 
 Route::get('kasus2', [ApiController::class, 'index']);
+Route::get('kasus2/{id}', [ApiController::class, 'show']);

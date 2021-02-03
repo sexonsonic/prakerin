@@ -11,6 +11,7 @@ use App\Models\Kecamatan;
 use App\Models\Kelurahan;
 use App\Models\RW;
 use App\Models\Kasus2;
+use carbon\carbon;
 
 
 class ApiController extends Controller
@@ -18,29 +19,24 @@ class ApiController extends Controller
     
     public function index()
     {
-        $positif = DB::table('r_w_s')
-                   ->select('kasus2s.jml_positif', 'kasus2s.jml_meninggal', 'kasus2s.jml_sembuh')
-                   ->join('kasus2s','r_w_s.id','=','kasus2s.id_rw')
-                   ->sum('kasus2s.jml_positif');
-        $sembuh  = DB::table('r_w_s')
-                   ->select('kasus2s.jml_positif', 'kasus2s.jml_meninggal', 'kasus2s.jml_sembuh')
-                   ->join('kasus2s','r_w_s.id','=','kasus2s.id_rw')
-                   ->sum('kasus2s.jml_sembuh');
-        $meninggal = DB::table('r_w_s')
-                   ->select('kasus2s.jml_positif', 'kasus2s.jml_meninggal', 'kasus2s.jml_sembuh')
-                   ->join('kasus2s','r_w_s.id','=','kasus2s.id_rw')
-                   ->sum('kasus2s.jml_meninggal');
-
-        $res = [
-            'success'           => true,
-            'data'              => 'Data Kasus Indonesia',
-            'Jumlah Positif'    => $positif,
-            'Jumlah Sembuh'     => $sembuh,
-            'Jumlah Meninggal'  => $meninggal,
-            'message'           => 'Data Kasus Ditampilkan'
-        ];
-
-        return response()->json($res, 200);
+        $dt = DB::table('kasus2s')
+                ->select(DB::raw('provinsis.nama_provinsi as provinsi'), 
+                        DB::raw('SUM(kasus2s.jml_positif) as positif'), 
+                        DB::raw('SUM(kasus2s.jml_meninggal) as meninggal'),
+                        DB::raw('SUM(kasus2s.jml_sembuh) as sembuh')) 
+    			->join('r_w_s', 'r_w_s.id', '=', 'kasus2s.id_rw')
+    			->join('kelurahans', 'kelurahans.id', '=', 'r_w_s.id_kelurahan')
+    			->join('kecamatans', 'kecamatans.id', '=', 'kelurahans.id_kecamatan')
+    			->join('kotas', 'kotas.id', '=', 'kecamatans.id_kota')
+    			->join('provinsis', 'provinsis.id', '=', 'kotas.id_provinsi')
+    			->groupBy('provinsis.nama_provinsi')
+    			->get();
+    	$res = [
+    		'success' => true,
+    		'data' => $dt,
+    		'message' => 'berhasil'
+    	];
+    	return response()->json($res, 200);
     }
 
     /**
@@ -72,7 +68,25 @@ class ApiController extends Controller
      */
     public function show($id)
     {
-        //
+        $dt = DB::table('kasus2s')
+                ->select(DB::raw('provinsis.nama_provinsi as provinsi'), 
+                         DB::raw('SUM(kasus2s.jml_positif) as positif'), 
+                         DB::raw('SUM(kasus2s.jml_meninggal) as meninggal'),
+                         DB::raw('SUM(kasus2s.jml_sembuh) as sembuh')) 
+    			->join('r_w_s', 'r_w_s.id', '=', 'kasus2s.id_rw')
+    			->join('kelurahans', 'kelurahans.id', '=', 'r_w_s.id_kelurahan')
+    			->join('kecamatans', 'kecamatans.id', '=', 'kelurahans.id_kecamatan')
+    			->join('kotas', 'kotas.id', '=', 'kecamatans.id_kota')
+    			->join('provinsis', 'provinsis.id', '=', 'kotas.id_provinsi')
+    			->where('provinsis.id', $id)
+    			->groupBy('provinsis.nama_provinsi')
+    			->get();
+    	$res = [
+    		'success' => true,
+    		'data' => $dt,
+    		'message' => 'berhasil'
+    	];
+    	return response()->json($res, 200);
     }
 
     /**
