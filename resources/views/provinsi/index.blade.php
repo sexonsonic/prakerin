@@ -40,7 +40,7 @@
                                             <form action="{{route('provinsi.destroy',$data->id)}}" method="POST">
                                                 @csrf
                                                 <a href="{{route('provinsi.edit',$data->id)}}" class="btn btn-outline-primary btn-sm"><i class="fa fa-edit"> Edit</i></a> 
-                                                <button type="submit" onclick="return confirm('Apakah Anda Yakin ?')" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash-alt"> Hapus</i></button>
+                                                <button type="submit" class="btn btn-outline-danger btn-sm delete"><i class="fa fa-trash-alt"> Hapus</i></button>
                                             </form>
                                         </td>
                                     </tr>

@@ -60,6 +60,7 @@
       <section class="content">
           <div class="container-fluid">
             @yield('content')
+            
           </div>
       </section>
       </div>
@@ -100,6 +101,8 @@
 <script src="{{asset('assets/dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('assets/dist/js/demo.js')}}"></script>
+<!-- Sweetalert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <!-- DataTables -->
 <script src="{{asset('assets/plugins/datatables/jquery.dataTables.min.js')}}" ></script>
 <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
@@ -110,6 +113,7 @@
                 $('#datatable').DataTable();
             } );
     </script>
+
 @livewireScripts
 </body>
 </html>

@@ -22,7 +22,7 @@
                             <table class="table table-bordered" id="datatable">
                                 <thead>
                                     <tr>
-                                        <th>Nomor</th>
+                                        <th><center>Nomor</center></th>
                                         <th><center>Lokasi</center></th>
                                         <th><center>RW</center></th>
                                         <th><center>Kasus Positif</center></th>
@@ -36,7 +36,7 @@
                                     @php $no=1; @endphp
                                     @foreach($kasus2 as $data)
                                     <tr>
-                                        <th scope="row">{{ $no++ }}</th>
+                                        <th scope="row"><center>{{ $no++ }}</center></th>
                                         <td><center>
                                             Kelurahan : {{ $data->rw->kelurahan->nama_kelurahan }} <br>
                                             Kecamatan : {{ $data->rw->kelurahan->kecamatan->nama_kecamatan }} <br>
@@ -52,8 +52,10 @@
                                         <td style="text-align: center;">
                                             <form action="{{route('kasus2.destroy',$data->id)}}" method="POST">
                                                 @csrf
+                                                @method('delete')
                                                 <a href="{{route('kasus2.edit',$data->id)}}" class="btn btn-outline-primary btn-sm"><i class="fa fa-edit"> Edit</i></a> 
-                                                <button type="submit" onclick="return confirm('Apakah Anda Yakin ?')" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash-alt"> Hapus</i></button>
+                                                <button type="submit" class="btn btn-outline-danger btn-sm"
+                                                onclick="return confirm('Apakah Anda Yakin ?')"><i class="fa fa-trash-alt"> Hapus</i></button>
                                             </form>
                                         </td>
                                     </tr>
@@ -66,4 +68,44 @@
             </div>
         </div>
     </div>
+
+    <!-- <script>
+        $(.delete).click(function(){
+            var kasus2_id = $(this).attr('kasus2-id');
+            const swalWithBootstrapButtons = Swal.mixin({
+  customClass: {
+    confirmButton: 'btn btn-success',
+    cancelButton: 'btn btn-danger'
+  },
+  buttonsStyling: false
+})
+
+swalWithBootstrapButtons.fire({
+  title: 'Are you sure?',
+  text: "You won't be able to revert this!",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonText: 'Yes, delete it!',
+  cancelButtonText: 'No, cancel!',
+  reverseButtons: true
+}).then((result) => {
+  if (result.isConfirmed) {
+    swalWithBootstrapButtons.fire(
+      'Deleted!',
+      'Your file has been deleted.',
+      'success'
+    )
+  } else if (
+    /* Read more about handling dismissals below */
+    result.dismiss === Swal.DismissReason.cancel
+  ) {
+    swalWithBootstrapButtons.fire(
+      'Cancelled',
+      'Your imaginary file is safe :)',
+      'error'
+    )
+  }
+})
+        });
+    </script> -->
 @endsection
