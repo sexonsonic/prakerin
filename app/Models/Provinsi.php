@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Provinsi extends Model
 {
-    protected $fillable = ['kode_provinsi','nama_provinsi'];
-    public $timetamps = true;
+    protected $table = "provinsis";
+    protected $fillable = ['id', 'kode_provinsi','nama_provinsi'];
+    public $timestamps = true;
 
     public function kota(){
-        return $this->hasMany('Kota::class');
+        return $this->hasMany(Kota::class);
     }
 }

@@ -14,11 +14,11 @@ class CreateKasus2sTable extends Migration
     public function up()
     {
         Schema::create('kasus2s', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('id_rw');
+            $table->id();
+            $table->unsignedBigInteger('id_rw');
             $table->string('jml_positif');
-            $table->string('jml_meninggal');
             $table->string('jml_sembuh');
+            $table->string('jml_meninggal');
             $table->date('tanggal');
             $table->foreign('id_rw')->references('id')->on('r_w_s')->onDelete('cascade');
             $table->timestamps();
