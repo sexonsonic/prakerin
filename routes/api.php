@@ -38,3 +38,5 @@ Route::get('kasus2/provinsi/kota/kecamatan/kelurahan/{id}', [ApiController::clas
 // Per RW
 Route::get('kasus2/provinsi/kota/kecamatan/kelurahan/rw', [ApiController::class, 'rw']);
 Route::get('kasus2/provinsi/kota/kecamatan/kelurahan/rw/{id}', [ApiController::class, 'showrw']);
+// Data Kasus Global
+Route::get('global', [ApiController::class, 'global']);

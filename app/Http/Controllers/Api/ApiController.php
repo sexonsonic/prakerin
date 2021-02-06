@@ -12,6 +12,7 @@ use App\Models\Kelurahan;
 use App\Models\RW;
 use App\Models\Kasus2;
 
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Carbon;
 
 
@@ -218,43 +219,32 @@ class ApiController extends Controller
     	return response()->json($res, 200);
     }
 
-    // Per RW
-    // public function rw()
-    // {
-    //     $dt = DB::table('kasus2s')
-    //             ->select(DB::raw('r_w_s.nama as "RW"'), 
-    //                     DB::raw('SUM(kasus2s.jml_positif) as "Jumlah Positif"'), 
-    //                     DB::raw('SUM(kasus2s.jml_meninggal) as "Jumlah Meninggal"'),
-    //                     DB::raw('SUM(kasus2s.jml_sembuh) as "Jumlah Sembuh"')) 
-    // 			->join('r_w_s', 'r_w_s.id', '=', 'kasus2s.id_rw')
-    // 			->groupBy('r_w_s.id')
-    // 			->get();
-    // 	$res = [
-    // 		'success' => true,
-    // 		'data' => $dt,
-    // 		'message' => 'berhasil'
-    // 	];
-    // 	return response()->json($res, 200);
-    // }
+    // DATA GLOBAL MENGGUNAKAN HTTP CLIENT
+    public function global()
+    {
+        $data =  Http::get('https://api.kawalcorona.com/')->json();
+    	$dt = [];
+        foreach($data as $key => $isi)
+        {
+            $dtarray = $isi['attributes'];
+            $isidata = [
+                'OBJECTID' => $dtarray['OBJECTID'],
+                'Country_Region' => $dtarray['Country_Region'],
+                'Confirmed' => $dtarray['Confirmed'],
+                'Deaths' => $dtarray['Deaths'],
+                'Recovered' => $dtarray['Recovered'] 
+            ];
+            array_push($dt, $isidata);
+        }
 
-    // public function showrw($id)
-    // {
-    //     $dt = DB::table('kasus2s')
-    //             ->select(DB::raw('r_w_s.nama as "RW"'), 
-    //                      DB::raw('SUM(kasus2s.jml_positif) as Positif'), 
-    //                      DB::raw('SUM(kasus2s.jml_meninggal) as Meninggal'),
-    //                      DB::raw('SUM(kasus2s.jml_sembuh) as Sembuh')) 
-    // 			->join('r_w_s', 'r_w_s.id', '=', 'kasus2s.id_rw')
-    // 			->where('r_w_s.id', $id)
-    // 			->groupBy('r_w_s.id')
-    // 			->get();
-    // 	$res = [
-    // 		'success' => true,
-    // 		'data' => $dt,
-    // 		'message' => 'berhasil'
-    // 	];
-    // 	return response()->json($res, 200);
-    // }
+        $hasil = [
+            'success' => true,
+            'data' => $dt,
+            'message' => 'Success'
+        ];
+
+    	return response()->json($hasil, 200);
+    }
     
     public function show($id)
     {

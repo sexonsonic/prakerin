@@ -15,10 +15,11 @@ class CreateKotasTable extends Migration
     {
         Schema::create('kotas', function (Blueprint $table) {
             $table->id();
+            $table->string('kode_kota');
             $table->unsignedBigInteger('id_provinsi');
             $table->foreign('id_provinsi')->references('id')->on('provinsis')->onDelete('cascade');
             $table->string('nama_kota');
-            $table->string('kode_kota');
+           
             $table->timestamps();
         });
     }
