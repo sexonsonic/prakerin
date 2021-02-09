@@ -51,3 +51,7 @@ Route::resource('rw', RwController::class);
 // Routes Kasus2
 use App\Http\Controllers\Kasus2Controller;
 Route::resource('kasus2', Kasus2Controller::class);
+
+// Route FrontEnd
+use App\Http\Controllers\FrontendController;
+Route::resource('FrontEnd', FrontendController::class);
