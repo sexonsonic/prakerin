@@ -1811,3 +1811,11 @@ section {
     padding: 2px 0;
   }
 }
+.my-custom-scrollbar {
+  position: relative;
+  height: 500px;
+  overflow: auto;
+  }
+  .table-wrapper-scroll-y {
+  display: block;
+  }

@@ -19,6 +19,7 @@ class FrontendController extends Controller
 
     public function index()
     {
+        // Count Up
         $positif = DB::table('r_w_s')
             ->select('kasus2s.jml_positif',
             'kasus2s.jml_sembuh', 'kasus2s.jml_meninggal')
@@ -34,9 +35,31 @@ class FrontendController extends Controller
             'kasus2s.jml_sembuh','kasus2s.jml_meninggal')
             ->join('kasus2s','r_w_s.id','=','kasus2s.id_rw')
             ->sum('kasus2s.jml_meninggal');
-        
+        $global = file_get_contents('https://api.kawalcorona.com/positif');
+        $posglobal = json_decode($global, TRUE);
+
+        // Date
+        $tanggal = Carbon::now()->format('D d-M-Y');
+
+        // Table Provinsi
+        $tampil = DB::table('provinsis')
+                  ->join('kotas','kotas.id_provinsi','=','provinsis.id')
+                  ->join('kecamatans','kecamatans.id_kota','=','kotas.id')
+                  ->join('kelurahans','kelurahans.id_kecamatan','=','kecamatans.id')
+                  ->join('r_w_s','r_w_s.id_kelurahan','=','kelurahans.id')
+                  ->join('kasus2s','kasus2s.id_rw','=','r_w_s.id')
+                  ->select('nama_provinsi',
+                          DB::raw('sum(kasus2s.jml_positif) as jml_positif'),
+                          DB::raw('sum(kasus2s.jml_sembuh) as jml_sembuh'),
+                          DB::raw('sum(kasus2s.jml_meninggal) as jml_meninggal'))
+                  ->groupBy('nama_provinsi')->orderBy('nama_provinsi','ASC')
+                  ->get();
+
+        // Table Global
+        $datadunia= file_get_contents("https://api.kawalcorona.com/");
+        $dunia = json_decode($datadunia, TRUE);
             
-        return view('frontend.welcome',compact('positif','sembuh','meninggal'));
+        return view('frontend.welcome',compact('positif','sembuh','meninggal','posglobal', 'tanggal','tampil','dunia'));
     }
 
     /**

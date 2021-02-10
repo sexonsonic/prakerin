@@ -47,28 +47,17 @@
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt=""></a>-->
 
-      <nav class="nav-menu d-none d-lg-block">
+      <nav class="nav-menu d-none d-lg-block navbar-fixed-top">
         <ul>
           <li class="active"><a href="http://127.0.0.1:8000/">Halaman Utama</a></li>
+          <li class="drop-down"><a href="">Data Kasus</a>
+            <ul>
+              <li><a href="#provinsi">Data Kasus Lokal</a></li>
+              <li><a href="#global">Data Kasus Global</a></li>
+            </ul>
+          </li>
           <li><a href="#services">Pelayanan</a></li>
           <li><a href="#faq">F.A.Q</a></li>
-          <!-- <li class="drop-down"><a href="">Drop Down</a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="drop-down"><a href="#">Deep Drop Down</a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li> -->
           <li><a href="#contact">Kontak</a></li>
           <li><a href="{{route('login')}}"><i class="icofont-login"></i> Login</a></li>
 
@@ -81,9 +70,9 @@
   <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center">
         <div class="container" data-aos="zoom-out" data-aos-delay="100">
-        <h1>Welcome to <span>TrackingCovid-19</spa>
+        <h1>Selamat Datang di <span>TrackingCovid-19</spa>
         </h1>
-        <h2>Coronavirus Indonesia & Global Live Data</h2>
+        <h2>Data Coronavirus Indonesia dan Global Terupdate</h2>
         </div>
     </section>
   <!-- End Hero -->
@@ -124,17 +113,110 @@
             <div class="count-box">
               <i class="icofont-globe"></i> <br>
               <h5><p>Total Dunia</p></h5>
-              <span data-toggle="counter-up">0</span>
+              <span data-toggle="counter-up"><?php echo $posglobal['value'] ?></span>
             </div>
           </div>
           
         </div><br><br>
         
         <div class="col text-center">
-            <h4><p>Update terakhir : </p></h4>
+            <h6><p>Update terakhir : {{ $tanggal }}</p></h6>
         </div> 
       </div>
     </section><!-- End Counts Section -->
+
+    <!-- ======== Table Section ======== -->
+    <section id="provinsi" class="provinsi">
+      <div class="container">
+
+        <div class="section-title" data-aos="zoom-out">
+          <h2>Data Kasus Indonesia</h2>
+        </div>
+
+        <div class="row content" data-aos="fade-up">
+              
+            <div class="table-wrapper-scroll-y my-custom-scrollbar col-lg-12">
+
+              <table class="table table-bordered table-striped mb-0 " width="100%">
+                <thead>
+                  <tr>
+                    <th scope="col"><center>No</center></th>
+                    <th scope="col"><center>Provinsi</center></th>
+                    <th scope="col"><center>Jumlah Positif</center></th>
+                    <th scope="col"><center>Jumlah Sembuh</center></th>
+                    <th scope="col"><center>Jumlah Meninggal</center></th>
+                  </tr>
+                </thead>
+              <tbody>
+              @php
+                $no = 1;
+              @endphp
+
+              @foreach($tampil as $tmp)
+                  <tr>
+                    <th scope="row"><center>{{$no++}}</center></th>
+                      <td><center>{{$tmp->nama_provinsi}}</center></td>
+                      <td><center>{{number_format($tmp->jml_positif)}}</center></td>
+                      <td><center>{{number_format($tmp->jml_sembuh)}}</center></td>
+                      <td><center>{{number_format($tmp->jml_meninggal)}}</center></td>
+                  </tr>
+                  
+                </tbody>
+                @endforeach
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      </section>
+    <!-- ======== End Table Section ======== -->
+
+    <!-- ======== Table Section Global ======= -->
+    <section id="global" class="global">
+      <div class="container">
+
+        <div class="section-title" data-aos="zoom-out">
+          <h2>Data Kasus Global</h2>
+        </div>
+
+        <div class="row content" data-aos="fade-up">
+              
+            <div class="table-wrapper-scroll-y my-custom-scrollbar col-lg-12">
+
+              <table class="table table-bordered table-striped mb-0 " width="100%">
+                <thead>
+                  <tr>
+                    <th scope="col"><center>No</center></th>
+                    <th scope="col"><center>Negara</center></th>
+                    <th scope="col"><center>Jumlah Positif</center></th>
+                    <th scope="col"><center>Jumlah Sembuh</center></th>
+                    <th scope="col"><center>Jumlah Meninggal</center></th>
+                  </tr>
+                </thead>
+              <tbody>
+              @php
+                $no = 1;
+              @endphp
+                @foreach($dunia as $data)
+                    <tr>
+                      <td> <?php echo $no++ ?></td>
+                      <td> <?php echo $data['attributes']['Country_Region'] ?></td>
+                      <td> <?php echo number_format($data['attributes']['Confirmed']) ?></td>
+                      <td><?php echo number_format($data['attributes']['Recovered'])?></td>
+                      <td><?php echo number_format($data['attributes']['Deaths'])?></td>
+                    </tr>
+                  @endforeach
+                </tbody>
+                
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      </section>
+    <!-- ======== End Table Section Global ======= -->
 
     <!-- ======= Services Section ======= -->
     <section id="services" class="services">
@@ -147,7 +229,7 @@
         </div>
 
         <div class="row">
-          <div class="col-lg-4 col-md d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-out" data-aos-delay="100">
+          <div class="col-lg-3  d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-out" data-aos-delay="100">
             <div class="icon-box">
               <div class="icon"><i class="bx bxl-dribbble"></i></div>
               <h4><a href="https://www.unicef.org/indonesia/id/coronavirus">
@@ -157,7 +239,7 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-out" data-aos-delay="200">
+          <div class="col-lg-3  d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-out" data-aos-delay="200">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-file"></i></div>
               <h4><a href="https://www.kompas.com/tren/read/2020/03/03/183500265/infografik-daftar-100-rumah-sakit-rujukan-penanganan-virus-corona">
@@ -167,7 +249,7 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-out" data-aos-delay="300">
+          <div class="col-lg-3  d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-out" data-aos-delay="300">
             <div class="icon-box">
               <div class="icon"><i class="bx bx-tachometer"></i></div>
               <h4><a href="https://infeksiemerging.kemkes.go.id/">
@@ -177,6 +259,15 @@
             </div>
           </div>
 
+          <div class="col-lg-3 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-out" data-aos-delay="300">
+            <div class="icon-box">
+              <div class="icon"><i class="bx bx-first-aid"></i></div>
+              <h4><a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public">
+                Coronavirus Disease(COVID-19)</a></h4>
+              <p>Coronavirus Disease advice for the public</p><br>
+              <p>WHO</p>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -357,28 +448,30 @@
       <div class="container">
         <div class="row">
 
-          <div class="col-lg-2 col-md-8 footer-contact">
+          <div class="col-lg-4 col-md-8 footer-contact">
             <h3>Tracking<span>Covid-19</span></h3>
             <p>
               Jl. Situ Tarate, Cibaduyut Raya <br>
               Kec. Dayeuhkolot<br>
               Kabupaten Bandung <br><br>
-              <strong>Phone:</strong> 022 5420-220<br>
+              <strong>Telefon:</strong> 022 5420-220<br>
               <strong>Email:</strong> info@smkassalaambandung.sch.id<br>
             </p>
           </div>
 
-          <div class="col-lg-2 col-md-8 footer-links">
-            <h4>Useful Links</h4>
+          <div class="col-lg-4 col-md-8 footer-links">
+            <h4>Link yang Berguna</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#provinsi">Data Kasus Lokal</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Data Kasus Global</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#services">Layanan</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#faq">F.A.Q</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#contact">Kontak</a></li>
             </ul>
           </div>
 
-          <div class="col-lg-2 col-md-8 footer-links">
+          <div class="col-lg-4 col-md-8 footer-links">
             <h4>Media Sosial Kami</h4>
             <p>Ini dianatara nya media sosial kami</p>
             <div class="social-links mt-6">
