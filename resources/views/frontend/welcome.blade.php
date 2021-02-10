@@ -49,8 +49,8 @@
 
       <nav class="nav-menu d-none d-lg-block">
         <ul>
-          <li class="active"><a href="http://127.0.0.1:8000/">Home</a></li>
-          <li><a href="#services">Services</a></li>
+          <li class="active"><a href="http://127.0.0.1:8000/">Halaman Utama</a></li>
+          <li><a href="#services">Pelayanan</a></li>
           <li><a href="#faq">F.A.Q</a></li>
           <!-- <li class="drop-down"><a href="">Drop Down</a>
             <ul>
@@ -69,8 +69,8 @@
               <li><a href="#">Drop Down 4</a></li>
             </ul>
           </li> -->
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="{{route('login')}}">Login</a></li>
+          <li><a href="#contact">Kontak</a></li>
+          <li><a href="{{route('login')}}"><i class="icofont-login"></i> Login</a></li>
 
         </ul>
       </nav><!-- .nav-menu -->
@@ -92,18 +92,15 @@
     
     <!-- ======= Counts Section ======= -->
     <section id="counts" class="counts">
-        <div class="col text-center">
-            <h4><p>Update terakhir : </p></h4>
-        </div> <br>
       <div class="container" data-aos="fade-up">
 
         <div class="row">
-
+         
           <div class="col-lg-3 col-md-6">
             <div class="count-box">
               <i class="icofont-plus"></i> <br>
               <h5><p>Positif</p></h5>  
-              <span data-toggle="counter-up">232</span>
+              <span data-toggle="counter-up">{{ $positif }}</span>
             </div>
           </div>
 
@@ -111,7 +108,7 @@
             <div class="count-box">
               <i class="icofont-heart-beat-alt"></i> <br>
               <h5><p>Sembuh</p></h5>
-              <span data-toggle="counter-up">521</span>
+              <span data-toggle="counter-up">{{ $sembuh }}</span>
             </div>
           </div>
 
@@ -119,20 +116,23 @@
             <div class="count-box">
               <i class="icofont-skull-danger"></i> <br>
               <h5><p>Meninggal</p></h5>
-              <span data-toggle="counter-up">1,463</span>
+              <span data-toggle="counter-up">{{ $meninggal }}</span>
             </div>
           </div>
-
+         
           <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
             <div class="count-box">
               <i class="icofont-globe"></i> <br>
               <h5><p>Total Dunia</p></h5>
-              <span data-toggle="counter-up">15</span>
+              <span data-toggle="counter-up">0</span>
             </div>
           </div>
-
-        </div>
-
+          
+        </div><br><br>
+        
+        <div class="col text-center">
+            <h4><p>Update terakhir : </p></h4>
+        </div> 
       </div>
     </section><!-- End Counts Section -->
 
@@ -188,7 +188,7 @@
 
         <div class="section-title">
           <h2>F.A.Q</h2>
-          <h3>Pertanyaan yang Sering <span>Dijawab</span></h3>
+          <h3>Pertanyaan yang Sering <span>Ditanya</span></h3>
           <p>Berikut beberapa jawaban dari pertanyaan yang sering di tanya</p>
         </div>
 
@@ -196,7 +196,7 @@
 
           <li>
             <a data-toggle="collapse" class="" href="#faq1">Apa itu Coronavirus atau Covid-19? <i class="icofont-simple-up"></i></a>
-            <div id="faq1" class="collapse show" data-parent=".faq-list">
+            <div id="faq1" class="collapse" data-parent=".faq-list">
               <p>
               Virus korona adalah sebutan untuk jenis virus yang dapat menyebabkan penyakit pada hewan dan manusia. 
               Disebut korona karena bentuknya yang seperti mahkota (korona ~ crown = mahkota dalam bahasa Latin).
@@ -371,7 +371,7 @@
           <div class="col-lg-2 col-md-8 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="{{route('FrontEnd.index') }}">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#services">Layanan</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#faq">F.A.Q</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#contact">Kontak</a></li>
@@ -425,5 +425,4 @@
   <script src="{{ asset ('assets/js/main.js') }}"></script>
 
 </body>
-
 </html>

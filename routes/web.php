@@ -12,10 +12,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function() {
+    return view('frontend.welcome');
 });
+
+// Route FrontEnd
+use App\Http\Controllers\FrontendController;
+Route::resource('/', FrontendController::class);
 
 Auth::routes();
 
@@ -51,7 +54,3 @@ Route::resource('rw', RwController::class);
 // Routes Kasus2
 use App\Http\Controllers\Kasus2Controller;
 Route::resource('kasus2', Kasus2Controller::class);
-
-// Route FrontEnd
-use App\Http\Controllers\FrontendController;
-Route::resource('FrontEnd', FrontendController::class);
