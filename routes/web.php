@@ -24,9 +24,9 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('admin', function(){
-    return view('utama');
-});
+// Route Halaman admin utama
+use App\Http\Controllers\UtamaController;
+Route::resource('home', UtamaController::class);
 
 // Routes Provinsi
 use App\Http\Controllers\ProvinsiController;

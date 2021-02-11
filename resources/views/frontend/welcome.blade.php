@@ -59,7 +59,6 @@
           <li><a href="#services">Pelayanan</a></li>
           <li><a href="#faq">F.A.Q</a></li>
           <li><a href="#contact">Kontak</a></li>
-          <li><a href="{{route('login')}}"><i class="icofont-login"></i> Login</a></li>
 
         </ul>
       </nav><!-- .nav-menu -->
@@ -88,32 +87,36 @@
           <div class="col-lg-3 col-md-6">
             <div class="count-box">
               <i class="icofont-plus"></i> <br>
-              <h5><p>Positif</p></h5>  
+              <h5><p>Jumlah Positif Indonesia</p></h5>  
               <span data-toggle="counter-up">{{ $positif }}</span>
+              <p>Orang</p>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
             <div class="count-box">
               <i class="icofont-heart-beat-alt"></i> <br>
-              <h5><p>Sembuh</p></h5>
+              <h5><p>Jumlah Sembuh Indonesia</p></h5>
               <span data-toggle="counter-up">{{ $sembuh }}</span>
+              <p>Orang</p>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
             <div class="count-box">
               <i class="icofont-skull-danger"></i> <br>
-              <h5><p>Meninggal</p></h5>
+              <h5><p>Jumlah Meninggal Indonesia</p></h5>
               <span data-toggle="counter-up">{{ $meninggal }}</span>
+              <p>Orang</p>
             </div>
           </div>
          
           <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
             <div class="count-box">
               <i class="icofont-globe"></i> <br>
-              <h5><p>Total Dunia</p></h5>
+              <h5><p>Jumlah Total Positif di Dunia</p></h5>
               <span data-toggle="counter-up"><?php echo $posglobal['value'] ?></span>
+              <p>Orang</p>
             </div>
           </div>
           
