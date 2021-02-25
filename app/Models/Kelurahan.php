@@ -10,7 +10,7 @@ class Kelurahan extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['id', 'kode_kelurahan','nama_kelurahan','id_kecamatan'];
+    protected $fillable = ['id', 'nama_kelurahan','id_kecamatan'];
     public $timestamps = true;
 
     public function kecamatan()

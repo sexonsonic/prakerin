@@ -35,7 +35,7 @@ class UtamaController extends Controller
         $global = file_get_contents('https://api.kawalcorona.com/positif');
         $posglobal = json_decode($global, TRUE);
 
-        $tanggal = Carbon::now()->format('D d-M-Y');
+        $tanggal = Carbon::now()->isoFormat('dddd, D MMMM Y hh:mm:ss');
         
             return view('utama',compact('positif','sembuh','meninggal','tanggal','posglobal'));
     }

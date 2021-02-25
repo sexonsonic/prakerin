@@ -31,18 +31,13 @@ class KecamatanController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'kode_kecamatan' => 'required|max:9|unique:kecamatans',
             'nama_kecamatan' => 'required|unique:kecamatans'
         ], [
-            'kode_kecamatan.required' => 'Kode kecamatan tidak boleh kosong',
-            'kode_kecamatan.max' => 'Kode maximal 7 karakter',
-            'kode_kecamatan.unique' => 'Kode kecamatan sudah terdaftar',
             'nama_kecamatan.required' => 'Nama kecamatan tidak boleh kosong',
             'nama_kecamatan.unique' => 'Nama kecamatan sudah terdaftar'
         ]);
 
         $kecamatan = new Kecamatan;
-        $kecamatan->kode_kecamatan = $request->kode_kecamatan;
         $kecamatan->nama_kecamatan = $request->nama_kecamatan;
         $kecamatan->id_kota = $request->id_kota;
         $kecamatan->save();
@@ -70,16 +65,12 @@ class KecamatanController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'kode_kecamatan' => 'required|max:9',
             'nama_kecamatan' => 'required'
         ], [
-            'kode_kecamatan.required' => 'Kode kecamatan tidak boleh kosong',
-            'kode_kecamatan.max' => 'Kode maximal 9 karakter',
             'nama_kecamatan.required' => 'Nama kecamatan tidak boleh kosong'
         ]);
 
         $kecamatan = Kecamatan::findOrFail($id);
-        $kecamatan->kode_kecamatan = $request->kode_kecamatan;
         $kecamatan->nama_kecamatan = $request->nama_kecamatan;
         $kecamatan->id_kota = $request->id_kota;
         $kecamatan->save();
