@@ -86,7 +86,7 @@
 
                 <div class="row">
 
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div class="count-box">
                             <i class="icofont-plus"></i> <br>
                             <h5>
@@ -97,7 +97,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
+                    <div class="col-lg-4 col-md-6 mt-5 mt-md-0">
                         <div class="count-box">
                             <i class="icofont-heart-beat-alt"></i> <br>
                             <h5>
@@ -108,7 +108,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+                    <div class="col-lg-4 col-md-6 mt-5 mt-lg-0">
                         <div class="count-box">
                             <i class="icofont-skull-danger"></i> <br>
                             <h5>
@@ -247,10 +247,8 @@
                                     <tr>
                                         <td> <?php echo $no++; ?></td>
                                         <td> <?php echo $data['attributes']['Country_Region']; ?></td>
-                                        <td> <?php echo number_format($data['attributes']['Confirmed']);
-                                            ?></td>
-                                        <td><?php echo number_format($data['attributes']['Recovered']);
-                                            ?></td>
+                                        <td> <?php echo number_format($data['attributes']['Confirmed']); ?></td>
+                                        <td><?php echo number_format($data['attributes']['Recovered']); ?></td>
                                         <td><?php echo number_format($data['attributes']['Deaths']); ?></td>
                                     </tr>
                                 @endforeach
