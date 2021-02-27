@@ -16,9 +16,9 @@ class CreateKasus2sTable extends Migration
         Schema::create('kasus2s', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_rw');
-            $table->string('jml_positif');
-            $table->string('jml_sembuh');
-            $table->string('jml_meninggal');
+            $table->integer('jml_positif');
+            $table->integer('jml_sembuh');
+            $table->integer('jml_meninggal');
             $table->date('tanggal');
             $table->foreign('id_rw')->references('id')->on('r_w_s')->onDelete('cascade');
             $table->timestamps();
