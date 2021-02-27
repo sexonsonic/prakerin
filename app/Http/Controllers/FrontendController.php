@@ -35,8 +35,8 @@ class FrontendController extends Controller
             'kasus2s.jml_sembuh','kasus2s.jml_meninggal')
             ->join('kasus2s','r_w_s.id','=','kasus2s.id_rw')
             ->sum('kasus2s.jml_meninggal');
-        $global = file_get_contents('https://api.kawalcorona.com/positif');
-        $posglobal = json_decode($global, TRUE);
+        // $global = file_get_contents('https://api.kawalcorona.com/positif');
+        // $posglobal = json_decode($global, TRUE);
 
         // Date
         $tanggal = Carbon::now()->isoFormat('dddd, D MMMM Y hh:mm:s');
@@ -56,10 +56,10 @@ class FrontendController extends Controller
                   ->get();
 
         // Table Global
-        $datadunia= file_get_contents("https://api.kawalcorona.com/");
-        $dunia = json_decode($datadunia, TRUE);
+        // $datadunia= file_get_contents("https://api.kawalcorona.com/");
+        // $dunia = json_decode($datadunia, TRUE);
             
-        return view('frontend.welcome',compact('positif','sembuh','meninggal', 'tanggal','tampil','dunia','posglobal'));
+        return view('frontend.welcome',compact('positif','sembuh','meninggal', 'tanggal','tampil'));
     }
 
     /**

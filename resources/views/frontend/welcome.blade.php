@@ -119,7 +119,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+                    {{-- <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
                         <div class="count-box">
                             <i class="icofont-globe"></i> <br>
                             <h5>
@@ -128,7 +128,7 @@
                             <span data-toggle="counter-up"><?php echo $posglobal['value']; ?></span>
                             <p>Orang</p>
                         </div>
-                    </div>
+                    </div> --}}
 
                 </div><br><br>
 
@@ -208,7 +208,7 @@
         <!-- ======== End Table Section ======== -->
 
         <!-- ======== Table Section Global ======= -->
-        <section id="global" class="global">
+        {{-- <section id="global" class="global">
             <div class="container">
 
                 <div class="section-title" data-aos="zoom-out">
@@ -262,7 +262,7 @@
             </div>
 
             </div>
-        </section>
+        </section> --}}
         <!-- ======== End Table Section Global ======= -->
 
         <!-- ======= Services Section ======= -->
