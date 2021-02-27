@@ -12,7 +12,7 @@ class RW extends Model
     public $timetamps = true;
 
     public function kelurahan(){
-        return $this->belongsTo('App\Models\kelurahan','id_kelurahan');
+        return $this->belongsTo('App\Models\Kelurahan','id_kelurahan');
     }
 
     public function kasus2(){
