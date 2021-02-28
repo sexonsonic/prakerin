@@ -511,7 +511,7 @@
 
                     <div class="col-lg-4 col-md-8 footer-links">
                         <h4>Media Sosial Kami</h4>
-                        <p>Ini dianatara nya media sosial kami</p>
+                        <p>Ini diantara nya media sosial kami</p>
                         <div class="social-links mt-6">
                             <a href="https://www.facebook.com/smkassalaam/" class="facebook"><i
                                     class="bx bxl-facebook"></i></a>
