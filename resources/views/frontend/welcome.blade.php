@@ -208,7 +208,7 @@
         <!-- ======== End Table Section ======== -->
 
         <!-- ======== Table Section Global ======= -->
-        {{-- <section id="global" class="global">
+        <section id="global" class="global">
             <div class="container">
 
                 <div class="section-title" data-aos="zoom-out">
@@ -247,8 +247,10 @@
                                     <tr>
                                         <td> <?php echo $no++; ?></td>
                                         <td> <?php echo $data['attributes']['Country_Region']; ?></td>
-                                        <td> <?php echo number_format($data['attributes']['Confirmed']); ?></td>
-                                        <td><?php echo number_format($data['attributes']['Recovered']); ?></td>
+                                        <td> <?php echo number_format($data['attributes']['Confirmed']);
+                                            ?></td>
+                                        <td><?php echo number_format($data['attributes']['Recovered']);
+                                            ?></td>
                                         <td><?php echo number_format($data['attributes']['Deaths']); ?></td>
                                     </tr>
                                 @endforeach
@@ -260,7 +262,7 @@
             </div>
 
             </div>
-        </section> --}}
+        </section>
         <!-- ======== End Table Section Global ======= -->
 
         <!-- ======= Services Section ======= -->
