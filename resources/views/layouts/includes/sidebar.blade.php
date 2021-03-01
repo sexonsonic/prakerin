@@ -56,6 +56,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{ route('rt.index') }}" class="nav-link">
+                                <i class="fas fa-map-marker text-warning nav-icon"></i>
+                                <p>RT</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{ route('kasus2.index') }}" class="nav-link">
                                 <i class="far fa-circle text-primary nav-icon"></i>
                                 <p>Kasus Local</p>

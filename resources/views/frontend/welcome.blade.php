@@ -45,7 +45,7 @@
     <header id="header" class="top">
         <div class="container d-flex align-items-center">
 
-            <h1 class="logo mr-auto"><a href="index.html">Tracking<span>Covid-19</span></a></h1>
+            <h1 class="logo mr-auto"><a href="">Tracking<span>Covid-19</span></a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html" class="logo mr-auto"><img src="assets/img/logo.png" alt=""></a>-->
 
@@ -86,7 +86,7 @@
 
                 <div class="row">
 
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-4 col-md-6">
                         <div class="count-box">
                             <i class="icofont-plus"></i> <br>
                             <h5>
@@ -97,7 +97,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6 mt-5 mt-md-0">
+                    <div class="col-lg-4 col-md-6 mt-5 mt-md-0">
                         <div class="count-box">
                             <i class="icofont-heart-beat-alt"></i> <br>
                             <h5>
@@ -108,7 +108,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+                    <div class="col-lg-4 col-md-6 mt-5 mt-lg-0">
                         <div class="count-box">
                             <i class="icofont-skull-danger"></i> <br>
                             <h5>
@@ -119,7 +119,7 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
+                    {{-- <div class="col-lg-3 col-md-6 mt-5 mt-lg-0">
                         <div class="count-box">
                             <i class="icofont-globe"></i> <br>
                             <h5>
@@ -128,7 +128,7 @@
                             <span data-toggle="counter-up"><?php echo $posglobal['value']; ?></span>
                             <p>Orang</p>
                         </div>
-                    </div>
+                    </div> --}}
 
                 </div><br><br>
 
@@ -208,7 +208,7 @@
         <!-- ======== End Table Section ======== -->
 
         <!-- ======== Table Section Global ======= -->
-        <section id="global" class="global">
+        {{-- <section id="global" class="global">
             <div class="container">
 
                 <div class="section-title" data-aos="zoom-out">
@@ -247,10 +247,8 @@
                                     <tr>
                                         <td> <?php echo $no++; ?></td>
                                         <td> <?php echo $data['attributes']['Country_Region']; ?></td>
-                                        <td> <?php echo number_format($data['attributes']['Confirmed']);
-                                            ?></td>
-                                        <td><?php echo number_format($data['attributes']['Recovered']);
-                                            ?></td>
+                                        <td> <?php echo number_format($data['attributes']['Confirmed']); ?></td>
+                                        <td><?php echo number_format($data['attributes']['Recovered']); ?></td>
                                         <td><?php echo number_format($data['attributes']['Deaths']); ?></td>
                                     </tr>
                                 @endforeach
@@ -262,7 +260,7 @@
             </div>
 
             </div>
-        </section>
+        </section> --}}
         <!-- ======== End Table Section Global ======= -->
 
         <!-- ======= Services Section ======= -->

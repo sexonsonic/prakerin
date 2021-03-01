@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
-use App\Http\Models\RW;
-use carbon\carbon;
 
-class UtamaController extends Controller
+class Rt extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,28 +13,7 @@ class UtamaController extends Controller
      */
     public function index()
     {
-        // Count Up
-        $positif = DB::table('r_w_s')
-            ->select('kasus2s.jml_positif',
-            'kasus2s.jml_sembuh', 'kasus2s.jml_meninggal')
-            ->join('kasus2s','r_w_s.id','=','kasus2s.id_rw')
-            ->sum('kasus2s.jml_positif'); 
-        $sembuh = DB::table('r_w_s')
-            ->select('kasus2s.jml_positif',
-            'kasus2s.jml_sembuh','kasus2s.jml_meninggal')
-            ->join('kasus2s','r_w_s.id','=','kasus2s.id_rw')
-            ->sum('kasus2s.jml_sembuh');
-        $meninggal = DB::table('r_w_s')
-            ->select('kasus2s.jml_positif',
-            'kasus2s.jml_sembuh','kasus2s.jml_meninggal')
-            ->join('kasus2s','r_w_s.id','=','kasus2s.id_rw')
-            ->sum('kasus2s.jml_meninggal');
-        // $global = file_get_contents('https://api.kawalcorona.com/positif');
-        // $posglobal = json_decode($global, TRUE);
-
-        $tanggal = Carbon::now()->isoFormat('dddd, D MMMM Y hh:mm:ss');
-        
-            return view('utama',compact('positif','sembuh','meninggal','tanggal'));
+        //
     }
 
     /**

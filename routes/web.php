@@ -21,7 +21,6 @@ use App\Http\Controllers\FrontendController;
 Route::resource('/', FrontendController::class);
 
 Auth::routes();
-Auth::routes(['register'=> false, 'reset'=>false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -55,3 +54,6 @@ Route::resource('rw', RwController::class);
 // Routes Kasus2
 use App\Http\Controllers\Kasus2Controller;
 Route::resource('kasus2', Kasus2Controller::class);
+
+use App\Http\Controllers\RtController;
+Route::resource('rt', RtController::class);
